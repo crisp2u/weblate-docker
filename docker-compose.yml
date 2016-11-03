@@ -1,6 +1,7 @@
 version: '2'
 services:
   weblate:
+    container_name: weblatedocker_weblate_1
     build: weblate
     links:
       - database
@@ -11,15 +12,17 @@ services:
       - ./weblate/environment
     restart: always
   web:
+    container_name: weblatedocker_web_1
     build: nginx
     links:
       - weblate
     ports:
-      - "8000:80"
+      - 80
     volumes_from:
       - weblate:ro
     restart: always
   database:
+    container_name: weblatedocker_database_1
     image: postgres:9.4
     env_file:
       - ./weblate/environment
@@ -27,6 +30,7 @@ services:
       - postgres-data:/var/lib/postgresql/data
     restart: always
   cache:
+    container_name: weblatedocker_cache_1
     image: memcached:1.4
     restart: always
 volumes:

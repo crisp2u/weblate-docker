@@ -4,8 +4,8 @@ django-crispy-forms==1.6.0
 python-social-auth==0.2.19
 translate-toolkit>=2.0.0b1,<2.1
 pyLibravatar==1.7
-# Weblate==2.8
-https://github.com/nijel/weblate/archive/master.zip
+#Weblate==2.9
+https://github.com/crisp2u/weblate/archive/master.zip
 pyuca==1.1
 python-memcached==1.57
 django_compressor==1.6
@@ -15,6 +15,8 @@ Babel==2.3.4
 PyDNS==2.3.6
 python-bidi>=0.4.0
 defusedxml>=0.4
+simplejson
+six>=1.10.0
 # Following are installed using apt:
 # Pillow
 # lxml

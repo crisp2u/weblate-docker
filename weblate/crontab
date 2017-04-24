@@ -1,0 +1,9 @@
+# Fulltext index updates
+*/5 * * * * cd /app/bin/; ./django-admin.py update_index
+*/5 * * * * cd /app/bin/; ./django-admin.py commit_pending --all --verbosity=0
+
+# Cleanup stale objects
+@daily cd /app/bin/; ./django-admin.py cleanuptrans
+
+# Commit pending changes after 96 hours
+@hourly cd /app/bin/; ./django-admin.py commit_pending --all --age=96 --verbosity=0

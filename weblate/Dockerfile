@@ -5,7 +5,7 @@ MAINTAINER Michal Čihař <michal@cihar.com>
 RUN useradd --shell /bin/sh --user-group weblate
 
 RUN env DEBIAN_FRONTEND=noninteractive apt-get update \
-  && apt-get install --no-install-recommends -y ssh curl python-virtualenv python-lxml python-pillow python-psycopg2 python-mysqldb gettext \
+  && apt-get install --no-install-recommends -y ssh curl python-virtualenv python-lxml python-pillow python-psycopg2 python-mysqldb gettext python-requests \
   && apt-get -y install -t jessie-backports mercurial nano git \
   && apt-get -y upgrade \
   && apt-get clean
@@ -22,6 +22,8 @@ RUN bin/pip install -r /tmp/requirements.txt
 RUN rm /tmp/requirements.txt
 
 ADD settings.py /app/etc/
+ADD post_push_script.py /app/bin/
+RUN chmod +x /app/bin/post_push_script.py
 ADD start /app/bin/
 RUN chmod +x /app/bin/start
 

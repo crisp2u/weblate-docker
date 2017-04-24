@@ -557,6 +557,10 @@ CHECK_LIST = (
 # )
 # PRE_COMMIT_SCRIPTS = (
 # )
+# 
+POST_PUSH_SCRIPTS = (
+    '/app/bin/post_push_script.py',
+)
 
 # E-mail address that error messages come from.
 SERVER_EMAIL = os.environ['WEBLATE_SERVER_EMAIL']
@@ -639,6 +643,7 @@ EMAIL_HOST = os.environ.get('WEBLATE_EMAIL_HOST', '')
 EMAIL_HOST_USER = os.environ.get('WEBLATE_EMAIL_USER', '')
 EMAIL_HOST_PASSWORD = os.environ.get('WEBLATE_EMAIL_PASSWORD', '')
 EMAIL_PORT = os.environ.get('WEBLATE_EMAIL_PORT',587)
-EMAIL_USE_SSL = os.environ.get('WEBLATE_EMAIL_USE_SSL',False)
+EMAIL_USE_SSL = False
+
 
 GOOGLE_ANALYTICS_ID = os.environ.get('WEBLATE_GOOGLE_ANALYTICS_ID', '')
